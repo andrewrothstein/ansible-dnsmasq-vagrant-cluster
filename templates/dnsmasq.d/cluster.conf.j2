@@ -1,0 +1,5 @@
+{% for i in range(cluster_node_cnt) %}
+address=/{{cluster_prefix}}-{{ '%02d' % (i+1) }}.{{cluster_domain}}/{{cluster_netprefix}}.{{cluster_base_id + i + 1}}
+{% endfor %}
+
+addn-hosts={{cluster_install_parent_dir}}/etc/dnsmasq.d/{{cluster_prefix}}-cluster-hosts

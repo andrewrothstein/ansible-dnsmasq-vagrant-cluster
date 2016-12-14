@@ -1,0 +1,12 @@
+---
+# defaults file for dnsmasq-vagrant-cluster
+cluster_install_parent_dir: /usr/local
+cluster_prefix: centos-7
+cluster_domain: vagrant.test
+cluster_nameserver: '192.168.64.1'
+cluster_upstream_dns:
+  - '8.8.8.8'
+  - '8.8.4.4'
+cluster_netprefix: '192.168.33'
+cluster_base_id: 6
+cluster_node_cnt: 4

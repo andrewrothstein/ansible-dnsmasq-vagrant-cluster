@@ -1,0 +1,19 @@
+---
+- name: install dnsmasq
+  package: name=dnsmasq state=present
+
+- name: templatize
+  with_items:
+    - dnsmasq.conf
+  template: >-
+    src={{item}}.j2
+    dest={{cluster_install_parent_dir}}/etc/{{item}}
+
+- name: templatize again
+  with_items:
+    - cluster-hosts
+    - cluster.conf
+  template: >-
+    src=dnsmasq.d/{{item}}.j2
+    dest={{cluster_install_parent_dir}}/etc/dnsmasq.d/{{cluster_prefix}}-{{item}}
+    mode=0644

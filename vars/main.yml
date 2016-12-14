@@ -1,0 +1,3 @@
+---
+# vars file for dnsmasq-vagrant-cluster
+cluster_lb: '{{cluster_prefix}}.{{cluster_domain}}'

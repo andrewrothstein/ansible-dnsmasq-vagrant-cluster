@@ -1,0 +1,9 @@
+listen-address=127.0.0.1
+listen-address={{cluster_nameserver}}
+
+{% for ns in cluster_upstream_dns %}
+server={{ns}}
+{% endfor %}
+
+conf-dir={{cluster_install_parent_dir}}/etc/dnsmasq.d,*.conf
+
