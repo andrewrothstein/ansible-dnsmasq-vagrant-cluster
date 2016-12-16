@@ -9,6 +9,12 @@
     src={{item}}.j2
     dest={{cluster_install_parent_dir}}/etc/{{item}}
 
+- name: mkdir
+  file: >-
+    path={{cluster_install_parent_dir}}/etc/dnsmasq.d
+    state=directory
+    mode=0755
+    
 - name: templatize again
   with_items:
     - cluster-hosts
